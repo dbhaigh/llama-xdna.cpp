@@ -316,8 +316,13 @@ if (GGML_METAL AND NOT GGML_BACKEND_DL)
 endif()
 
 llama_build(test-backend-ops.cpp LINK ggml)
+if (GGML_RPC)
+    llama_build(test-rpc-supports-op.cpp LINK ggml)
+endif()
 
 llama_build_and_test(test-tiled-mulmat.cpp  LABEL "main behavior backend"  LINK ggml)
+llama_build_and_test(test-q4nx.cpp  LABEL "model behavior"  LINK ggml)
+target_include_directories(test-q4nx PRIVATE ${PROJECT_SOURCE_DIR}/src)
 llama_build_and_test(test-model-load-cancel.cpp LABEL "model behavior")
 llama_build_and_test(test-autorelease.cpp       LABEL "model behavior")
 llama_build_and_test(test-backend-sampler.cpp   LABEL "model behavior backend")

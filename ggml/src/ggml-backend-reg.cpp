@@ -86,6 +86,10 @@
 #include "ggml-openvino.h"
 #endif
 
+#ifdef GGML_USE_XDNA
+GGML_BACKEND_API ggml_backend_reg_t ggml_backend_xdna_reg(void);
+#endif
+
 #ifdef GGML_USE_ET
 #include "ggml-et.h"
 #endif
@@ -164,6 +168,9 @@ struct ggml_backend_registry {
 #endif
 #ifdef GGML_USE_OPENVINO
         register_backend(ggml_backend_openvino_reg());
+#endif
+#ifdef GGML_USE_XDNA
+        register_backend(ggml_backend_xdna_reg());
 #endif
 #ifdef GGML_USE_ET
         register_backend(ggml_backend_et_reg());

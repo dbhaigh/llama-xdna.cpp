@@ -10,6 +10,7 @@
 #include "llama-model-loader.h"
 #include "llama-model-saver.h"
 #include "llama-model.h"
+#include "llama-q4nx.h"
 
 #include "ggml.h"
 #include "ggml-cpp.h"
@@ -385,6 +386,10 @@ static struct llama_model * llama_model_load_from_file_impl(
         std::vector<std::string> & splits,
         FILE * file,
         struct llama_model_params params) {
+    if (metadata == nullptr && !path_model.empty() && llama_model_is_q4nx_path(path_model)) {
+        return llama_model_load_q4nx_from_file(path_model, params);
+    }
+
     {
         int n_sources_defined = 0;
         if (metadata != nullptr) {
@@ -618,4 +623,3 @@ const char * llama_print_system_info(void) {
 
     return s.c_str();
 }
-
