@@ -55,6 +55,11 @@
 /autogen-*.md
 /common/build-info.cpp
 
+# XDNA kernel build artifacts
+/ggml/src/ggml-xdna/kernels/**/q4_0_matvec.pdi
+/ggml/src/ggml-xdna/kernels/**/q4_0_matvec.prj/
+/ggml/src/ggml-xdna/kernels/q4_0_matvec_151936x1x1536/
+
 # Deprecated
 
 /main

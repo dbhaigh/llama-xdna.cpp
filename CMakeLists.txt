@@ -1,11 +1,11 @@
 cmake_minimum_required(VERSION 3.14...3.28) # for add_link_options and implicit target directories.
-project("llama.cpp" C CXX)
+project("llama-xdna.cpp" C CXX)
 include(CheckIncludeFileCXX)
 
-### llama.cpp version
+### llama-xdna.cpp version
 set(LLAMA_VERSION_MAJOR 0)
 set(LLAMA_VERSION_MINOR 7)
-set(LLAMA_VERSION_PATCH 0)
+set(LLAMA_VERSION_PATCH 1)
 set(LLAMA_VERSION_BASE "${LLAMA_VERSION_MAJOR}.${LLAMA_VERSION_MINOR}.${LLAMA_VERSION_PATCH}")
 
 # whether this is a development/nightly build
@@ -20,7 +20,7 @@ else()
     set(LLAMA_VERSION "${LLAMA_VERSION_BASE}")
 endif()
 
-message(STATUS "llama.cpp version: ${LLAMA_VERSION}")
+message(STATUS "llama-xdna.cpp version: ${LLAMA_VERSION}")
 
 #set(CMAKE_WARN_DEPRECATED YES)
 set(CMAKE_WARN_UNUSED_CLI YES)

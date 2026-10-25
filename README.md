@@ -1,4 +1,4 @@
-# llama.cpp
+# llama-xdna.cpp
 
 ![llama](https://raw.githubusercontent.com/ggml-org/llama.brand/refs/heads/master/cover/llama-cpp/cover-llama-cpp-dark.svg)
 
@@ -7,11 +7,11 @@
 <b>LLM inference in C/C++</b>
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/github/v/release/ggml-org/llama.cpp?filter=v*&color=brightgreen)](https://github.com/ggml-org/llama.cpp/releases?q=tag:v0)
-[![Nightly](https://img.shields.io/github/v/release/ggml-org/llama.cpp?label=nightly&filter=b*&color=orange)](https://github.com/ggml-org/llama.cpp/releases?q=b)
-[![Server](https://img.shields.io/github/actions/workflow/status/ggml-org/llama.cpp/server.yml?label=Server)](https://github.com/ggml-org/llama.cpp/actions/workflows/server.yml)
-[![Docker](https://img.shields.io/github/actions/workflow/status/ggml-org/llama.cpp/docker.yml?label=Docker)](https://github.com/ggml-org/llama.cpp/actions/workflows/docker.yml)
-[![Winget](https://img.shields.io/github/actions/workflow/status/ggml-org/llama.cpp/winget.yml?label=Winget)](https://github.com/ggml-org/llama.cpp/actions/workflows/winget.yml)
+[![Release](https://img.shields.io/github/v/release/dbhaigh/llama-xdna.cpp?filter=v*&color=brightgreen)](https://github.com/dbhaigh/llama-xdna.cpp/releases?q=tag:v0)
+[![Nightly](https://img.shields.io/github/v/release/dbhaigh/llama-xdna.cpp?label=nightly&filter=b*&color=orange)](https://github.com/dbhaigh/llama-xdna.cpp/releases?q=b)
+[![Server](https://img.shields.io/github/actions/workflow/status/dbhaigh/llama-xdna.cpp/server.yml?label=Server)](https://github.com/dbhaigh/llama-xdna.cpp/actions/workflows/server.yml)
+[![Docker](https://img.shields.io/github/actions/workflow/status/dbhaigh/llama-xdna.cpp/docker.yml?label=Docker)](https://github.com/dbhaigh/llama-xdna.cpp/actions/workflows/docker.yml)
+[![Winget](https://img.shields.io/github/actions/workflow/status/dbhaigh/llama-xdna.cpp/winget.yml?label=Winget)](https://github.com/dbhaigh/llama-xdna.cpp/actions/workflows/winget.yml)
 
 [ggml](https://github.com/ggml-org/ggml) / [ops](https://github.com/ggml-org/llama.cpp/blob/master/docs/ops.md) / [maintainer PRs](https://github.com/ggml-org/llama.cpp/issues?q=is%3Apr%20is%3Aopen%20draft%3AFalse%20(author%3Argerganov%20OR%20author%3AKitaitiMakoto%20OR%20author%3Adanbev%20OR%20author%3Aaldehir%20OR%20author%3Amax-krasnyansky%20OR%20author%3ACISC%20OR%20author%3Aggerganov%20OR%20author%3Aam17an%20OR%20author%3Ajhen0409%20OR%20author%3Abartowski1182%20OR%20author%3Anikwen%20OR%20author%3Ahipudding%20OR%20author%3Aravi9%20OR%20author%3AServeurpersoCom%20OR%20author%3Apwilkin%20OR%20author%3Areeselevine%20OR%20author%3Angxson%20OR%20author%3Ajeffbolznv%20OR%20author%3Amarty1885%20OR%20author%3A0cc4m%20OR%20author%3ATitaniumtown%20OR%20author%3Aangt%20OR%20author%3AIMbackK%20OR%20author%3Aarthw%20OR%20author%3AJohannesGaessler%20OR%20author%3AORippler%20OR%20author%3Aruixiang63%20OR%20author%3Axctan%20OR%20author%3Aallozaur%20OR%20author%3Ayomaytk%20OR%20author%3Aaendk%20OR%20author%3Awine99%20OR%20author%3Agaugarg-nv%20OR%20author%3Ataronaeo%20OR%20author%3Aforforever73%20OR%20author%3Alhez%20OR%20author%3Anetrunnereve%20OR%20author%3Afairydreaming)%20sort%3Aupdated-desc) / [dev stats](https://github.com/ggml-org/llama.cpp-dev) / [lib llama API](https://github.com/ggml-org/llama.cpp/issues/9289) / [llama-server REST API](https://github.com/ggml-org/llama.cpp/issues/9291)
 
@@ -31,7 +31,7 @@ irm https://llama.app/install.ps1 | iex
 
 - Visit https://llama.app and follow the instructions
 - Run with Docker - see our [Docker documentation](docs/docker.md)
-- Download pre-built binaries from the [releases page](https://github.com/ggml-org/llama.cpp/releases)
+- Download pre-built binaries from the [releases page](https://github.com/dbhaigh/llama-xdna.cpp/releases)
 - Build from source by cloning this repository - check out [our build guide](docs/build.md)
 
 Once installed:
@@ -59,8 +59,8 @@ llama serve -hf ggml-org/Qwen3.5-0.8B-GGUF
 
 ## Description
 
-The main goal of `llama.cpp` is to enable LLM (and VLM) inference with minimal setup and state-of-the-art performance on
-a wide range of hardware - locally and in the cloud.
+The main goal of `llama-xdna.cpp`, a fork of [llama.cpp](https://github.com/ggml-org/llama.cpp), is to enable LLM (and VLM) inference
+with minimal setup and state-of-the-art performance on a wide range of hardware - locally and in the cloud.
 
 - Plain C/C++ implementation without any dependencies
 - Apple silicon is a first-class citizen - optimized via ARM NEON, Accelerate and Metal frameworks
@@ -93,6 +93,7 @@ The `llama.cpp` project is build on top of the [ggml](https://github.com/ggml-or
 | [VirtGPU](docs/backend/VirtGPU.md) | VirtGPU APIR |
 | [Vulkan](docs/build.md#vulkan) | GPU |
 | [WebGPU](docs/build.md#webgpu) | All |
+| [XDNA](docs/backend/XDNA.md) | AMD Ryzen AI NPU (experimental) |
 | [ZenDNN](docs/build.md#zendnn) | AMD CPU |
 
 ## Documentation
@@ -107,6 +108,7 @@ The `llama.cpp` project is build on top of the [ggml](https://github.com/ggml-or
 #### Development
 
 - [How to build](docs/build.md)
+- [AMD XDNA backend](docs/backend/XDNA.md)
 - [Running on Docker](docs/docker.md)
 - [Build on Android](docs/android.md)
 - [Multi-GPU usage](docs/multi-gpu.md)
@@ -121,7 +123,7 @@ The `llama.cpp` project is build on top of the [ggml](https://github.com/ggml-or
 
 - Contributors can open PRs
 - Collaborators will be invited based on contributions
-- Maintainers can push to branches in the `llama.cpp` repo and merge PRs into the `master` branch
+- Maintainers can push to branches in the `llama-xdna.cpp` repo and merge PRs into the `master` branch
 - Any help with managing issues, PRs and projects is very appreciated!
 - Read the [CONTRIBUTING.md](CONTRIBUTING.md) for more information
 

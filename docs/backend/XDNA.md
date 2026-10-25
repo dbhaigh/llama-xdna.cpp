@@ -72,7 +72,7 @@ The buffer reports the CPU backend's tensor alignment and checks each XRT mappin
 
 ## Build
 
-Install the XRT development package for your platform, then configure llama.cpp with:
+Install the XRT development package for your platform, then configure llama-xdna.cpp with:
 
 ```sh
 cmake -B build -DGGML_XDNA=ON
